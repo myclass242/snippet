@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/zy/Projects/snippet/threadlocal/CurrentThread.h
+unordered_map
+-
+string
+-
+iostream
+-
+unistd.h
+-
+sys/syscall.h
+-
+sys/types.h
+-
+
+/home/zy/Projects/snippet/threadlocal/main.cpp
+iostream
+-
+thread
+-
+iostream
+-
+CurrentThread.h
+/home/zy/Projects/snippet/threadlocal/CurrentThread.h
+

@@ -1,0 +1,3 @@
+/home/zy/Projects/snippet/threadlocal/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/zy/Projects/snippet/threadlocal/cmake-build-debug/CMakeFiles/threadlocal.dir
+/home/zy/Projects/snippet/threadlocal/cmake-build-debug/CMakeFiles/edit_cache.dir
