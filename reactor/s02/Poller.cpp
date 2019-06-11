@@ -30,6 +30,8 @@ Timestamp Poller::poll(int timeoutMs, muduo::Poller::ChannelList *activeChannels
     } else {
         LOG_SYSERR << "Poller::poll()";
     }
+
+    return now;
 }
 
 void Poller::fillActiveChannels(int numEvents, muduo::Poller::ChannelList *activeChannels)

@@ -9,6 +9,7 @@
 #include "base/Logging.h"
 #include "Poller.h"
 #include "Channel.h"
+#include "TimerQueue.h"
 
 using namespace muduo;
 
@@ -24,6 +25,7 @@ Eventloop::Eventloop()
       quit_(false)
 {
     poller_.reset(new Poller(this));
+    timerQueue_.reset(new TimerQueue(this));
     LOG_TRACE << "Eventloop created " << this << " in thread " << threadId_;
 
     if (t_loopInThisThread)
@@ -62,7 +64,7 @@ void Eventloop::loop()
     quit_ = false;
 
     while (!quit_) {
-        poller_->poll(kPollTimeMs, &activeChannels_);
+        pollReturnTime_ = poller_->poll(kPollTimeMs, &activeChannels_);
         for (auto& channel : activeChannels_) {
             channel->handleEvent();
         }
@@ -70,6 +72,23 @@ void Eventloop::loop()
 
     LOG_TRACE << "Eventloop " << this << " stop looping";
     looping_ = false;
+}
+
+TimerId Eventloop::runAt(TimerCallback&& callback, Timestamp when)
+{
+    return timerQueue_->addTimer(std::move(callback), when, 0.0);
+}
+
+TimerId Eventloop::runAfter(TimerCallback&& callback, double delay)
+{
+    Timestamp when = addTime(Timestamp::now(), delay);
+    return runAt(std::move(callback), when);
+}
+
+TimerId Eventloop::runEvery(TimerCallback&& callback, double interval)
+{
+    Timestamp when = addTime(Timestamp::now(), interval);
+    return timerQueue_->addTimer(std::move(callback), when, interval);
 }
 
 void Eventloop::updateChannel(muduo::Channel *channel)

@@ -19,8 +19,8 @@ void timeout(int timerfd)
 {
     printf("Timeout\n");
     std::cout << muduo::Timestamp::now().toString() << '\n';
-    char buf[1024];
-    read(timerfd, buf, 1024);
+    uint64_t howmany;
+    read(timerfd, &howmany, sizeof(howmany));
 //    g_loop->quit();
 }
 

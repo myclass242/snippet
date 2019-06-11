@@ -33,7 +33,7 @@ void readTimerfd(int timerfd, Timestamp now)
     LOG_TRACE << "TimerQueue::handleRead() " << howmany << " at " << now.toString();
     if (ret != sizeof(howmany))
     {
-        LOG_ERROR << "TImerQueue::handleRead() reads " << ret << " bytes instead of 8";
+        LOG_ERROR << "TImerQueue::handleRead() reads " << ret << " bytes instead of 8, error = " << strerror(errno);
     }
 }
 

@@ -14,11 +14,14 @@
 
 #include "base/noncopyable.h"
 #include "base/CurrentThread.h"
+#include "Callback.h"
+#include "TimerId.h"
 
 
 namespace muduo {
 class Poller;
 class Channel;
+class TimerQueue;
 
 class Eventloop : public noncopyable
 {
@@ -27,6 +30,17 @@ public:
     ~Eventloop();
 
     void loop();
+
+    Timestamp pollReturnTimer() const noexcept
+    {
+        return pollReturnTime_;
+    }
+
+    TimerId runAt(TimerCallback&& callBack, Timestamp when);
+    TimerId runAfter(TimerCallback&& callBack, double delay);
+    TimerId runEvery(TimerCallback&& callBack, double interval);
+
+
     void assertInLoopThread()
     {
         if (!isInLoopThread())
@@ -58,7 +72,8 @@ private:
     std::atomic_bool quit_;
     std::unique_ptr<Poller> poller_;
     ChannelLIst activeChannels_;
-
+    std::unique_ptr<TimerQueue> timerQueue_;
+    Timestamp pollReturnTime_;
 };
 
 }
