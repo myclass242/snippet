@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/test1.dir/Eventloop.cpp.o CMakeFiles/test1.dir/Poller.cpp.o CMakeFiles/test1.dir/Channel.cpp.o CMakeFiles/test1.dir/test1.cpp.o  -o test1 base/libmuduo_base.a -lpthread -lrt 

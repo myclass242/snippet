@@ -64,6 +64,7 @@ void Eventloop::loop()
     quit_ = false;
 
     while (!quit_) {
+	activeChannels_.clear();
         pollReturnTime_ = poller_->poll(kPollTimeMs, &activeChannels_);
         for (auto& channel : activeChannels_) {
             channel->handleEvent();
