@@ -14,7 +14,9 @@ set(SRC
     Timer.cpp
     TimerId.h
     TimerQueue.h
-    TimerQueue.cpp)
+    TimerQueue.cpp
+    EventLoopThread.h
+    EventLoopThread.cpp)
 
 add_subdirectory(base)
 
@@ -29,3 +31,9 @@ target_link_libraries(test3 muduo_base)
 
 add_executable(test4 ${SRC} test4.cpp)
 target_link_libraries(test4 muduo_base)
+
+add_executable(test5 ${SRC} test5.cpp)
+target_link_libraries(test5 muduo_base)
+
+add_executable(test6 ${SRC} test6.cpp)
+target_link_libraries(test6 muduo_base)

@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/test3.dir/Eventloop.cpp.o CMakeFiles/test3.dir/test3.cpp.o  -o test3 base/libmuduo_base.a -lpthread -lrt 

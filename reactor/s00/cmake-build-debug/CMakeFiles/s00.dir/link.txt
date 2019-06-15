@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/s00.dir/Eventloop.cpp.o CMakeFiles/s00.dir/test1.cpp.o  -o s00 

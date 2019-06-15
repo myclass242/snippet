@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/test4.dir/Eventloop.cpp.o CMakeFiles/test4.dir/Poller.cpp.o CMakeFiles/test4.dir/Channel.cpp.o CMakeFiles/test4.dir/Timer.cpp.o CMakeFiles/test4.dir/TimerQueue.cpp.o CMakeFiles/test4.dir/test4.cpp.o  -o test4 base/libmuduo_base.a -lpthread -lrt 
