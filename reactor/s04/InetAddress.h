@@ -20,6 +20,10 @@ public:
 
     std::string hostPort(void) const;
     struct sockaddr_in get(void) const;
+    struct sockaddr_in& getRef(void)
+    {
+        return addr_;
+    }
     void set(const struct sockaddr_in& addr);
 private:
     struct sockaddr_in addr_;

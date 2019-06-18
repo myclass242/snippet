@@ -61,7 +61,7 @@ int accept(int sockfd, struct sockaddr_in* addr)
         switch (saveErrno)
         {
             case EAGAIN:
-            case EWOULDBLOCK:
+            // case EWOULDBLOCK:    duplicate case value
             case EINTR:
             case EMFILE:
             case EPERM:
@@ -79,11 +79,11 @@ int accept(int sockfd, struct sockaddr_in* addr)
             case ENOTSOCK:
             case EOPNOTSUPP:
             // unexpected errors
-            LOG_FATAL << "unexpected error of ::accept " << savedErrno;
+            LOG_FATAL << "unexpected error of ::accept " << saveErrno;
             break;
 
             default:
-            LOG_FATAL << "unknown error of ::accept " << savedErrno;
+            LOG_FATAL << "unknown error of ::accept " << saveErrno;
             break;
         }
     }
@@ -93,7 +93,7 @@ int accept(int sockfd, struct sockaddr_in* addr)
 
 void close(int sockfd)
 {
-    if (close(sockfd) < 0)
+    if (::close(sockfd) < 0)
     {
         LOG_SYSERR << "muduo::close";
     }

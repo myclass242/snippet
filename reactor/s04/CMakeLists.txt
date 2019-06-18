@@ -20,7 +20,11 @@ set(SRC
     SockOps.h
     SockOps.cpp
     InetAddress.h
-    InetAddress.cpp)
+    InetAddress.cpp
+    Socket.h
+    Socket.cpp
+    Acceptor.h
+    Acceptor.cpp)
 
 add_subdirectory(base)
 
@@ -41,3 +45,6 @@ target_link_libraries(test5 muduo_base)
 
 add_executable(test6 ${SRC} test6.cpp)
 target_link_libraries(test6 muduo_base)
+
+add_executable(test7 ${SRC} test7.cpp)
+target_link_libraries(test7 muduo_base)
