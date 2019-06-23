@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="s05"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\base\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/zy/Project/snippet/reactor/s05"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test8">
+				<Option output="/home/zy/Project/snippet/reactor/s05/test8" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zy/Project/snippet/reactor/s05"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 test8"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test8/fast">
+				<Option output="/home/zy/Project/snippet/reactor/s05/test8" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zy/Project/snippet/reactor/s05"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 test8/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test7">
+				<Option output="/home/zy/Project/snippet/reactor/s05/test7" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zy/Project/snippet/reactor/s05"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 test7"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test7/fast">
+				<Option output="/home/zy/Project/snippet/reactor/s05/test7" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zy/Project/snippet/reactor/s05"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 test7/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test2">
+				<Option output="/home/zy/Project/snippet/reactor/s05/test2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zy/Project/snippet/reactor/s05"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 test2"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test2/fast">
+				<Option output="/home/zy/Project/snippet/reactor/s05/test2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zy/Project/snippet/reactor/s05"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 test2/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/zy/Project/snippet/reactor/s05"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test3">
+				<Option output="/home/zy/Project/snippet/reactor/s05/test3" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zy/Project/snippet/reactor/s05"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 test3"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test3/fast">
+				<Option output="/home/zy/Project/snippet/reactor/s05/test3" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zy/Project/snippet/reactor/s05"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 test3/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test1">
+				<Option output="/home/zy/Project/snippet/reactor/s05/test1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zy/Project/snippet/reactor/s05"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 test1"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test1/fast">
+				<Option output="/home/zy/Project/snippet/reactor/s05/test1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zy/Project/snippet/reactor/s05"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 test1/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test6">
+				<Option output="/home/zy/Project/snippet/reactor/s05/test6" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zy/Project/snippet/reactor/s05"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 test6"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test6/fast">
+				<Option output="/home/zy/Project/snippet/reactor/s05/test6" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zy/Project/snippet/reactor/s05"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 test6/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/zy/Project/snippet/reactor/s05"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test4">
+				<Option output="/home/zy/Project/snippet/reactor/s05/test4" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zy/Project/snippet/reactor/s05"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 test4"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test4/fast">
+				<Option output="/home/zy/Project/snippet/reactor/s05/test4" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zy/Project/snippet/reactor/s05"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 test4/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test5">
+				<Option output="/home/zy/Project/snippet/reactor/s05/test5" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zy/Project/snippet/reactor/s05"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 test5"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test5/fast">
+				<Option output="/home/zy/Project/snippet/reactor/s05/test5" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zy/Project/snippet/reactor/s05"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 test5/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="muduo_base">
+				<Option output="/home/zy/Project/snippet/reactor/s05/base/libmuduo_base.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zy/Project/snippet/reactor/s05/base"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/base/Makefile&quot;  VERBOSE=1 muduo_base"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/base/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/base/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/base/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="muduo_base/fast">
+				<Option output="/home/zy/Project/snippet/reactor/s05/base/libmuduo_base.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zy/Project/snippet/reactor/s05/base"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/base/Makefile&quot;  VERBOSE=1 muduo_base/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/base/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/base/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/zy/Project/snippet/reactor/s05/base/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/Acceptor.cpp">
+			<Option target="test8"/>
+			<Option target="test7"/>
+			<Option target="test2"/>
+			<Option target="test3"/>
+			<Option target="test1"/>
+			<Option target="test6"/>
+			<Option target="test4"/>
+			<Option target="test5"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/Acceptor.h">
+			<Option target="test8"/>
+			<Option target="test7"/>
+			<Option target="test2"/>
+			<Option target="test3"/>
+			<Option target="test1"/>
+			<Option target="test6"/>
+			<Option target="test4"/>
+			<Option target="test5"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/Channel.cpp">
+			<Option target="test8"/>
+			<Option target="test7"/>
+			<Option target="test2"/>
+			<Option target="test3"/>
+			<Option target="test1"/>
+			<Option target="test6"/>
+			<Option target="test4"/>
+			<Option target="test5"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/Channel.h">
+			<Option target="test8"/>
+			<Option target="test7"/>
+			<Option target="test2"/>
+			<Option target="test3"/>
+			<Option target="test1"/>
+			<Option target="test6"/>
+			<Option target="test4"/>
+			<Option target="test5"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/EventLoopThread.cpp">
+			<Option target="test8"/>
+			<Option target="test7"/>
+			<Option target="test2"/>
+			<Option target="test3"/>
+			<Option target="test1"/>
+			<Option target="test6"/>
+			<Option target="test4"/>
+			<Option target="test5"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/EventLoopThread.h">
+			<Option target="test8"/>
+			<Option target="test7"/>
+			<Option target="test2"/>
+			<Option target="test3"/>
+			<Option target="test1"/>
+			<Option target="test6"/>
+			<Option target="test4"/>
+			<Option target="test5"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/Eventloop.cpp">
+			<Option target="test8"/>
+			<Option target="test7"/>
+			<Option target="test2"/>
+			<Option target="test3"/>
+			<Option target="test1"/>
+			<Option target="test6"/>
+			<Option target="test4"/>
+			<Option target="test5"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/Eventloop.h">
+			<Option target="test8"/>
+			<Option target="test7"/>
+			<Option target="test2"/>
+			<Option target="test3"/>
+			<Option target="test1"/>
+			<Option target="test6"/>
+			<Option target="test4"/>
+			<Option target="test5"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/InetAddress.cpp">
+			<Option target="test8"/>
+			<Option target="test7"/>
+			<Option target="test2"/>
+			<Option target="test3"/>
+			<Option target="test1"/>
+			<Option target="test6"/>
+			<Option target="test4"/>
+			<Option target="test5"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/InetAddress.h">
+			<Option target="test8"/>
+			<Option target="test7"/>
+			<Option target="test2"/>
+			<Option target="test3"/>
+			<Option target="test1"/>
+			<Option target="test6"/>
+			<Option target="test4"/>
+			<Option target="test5"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/Poller.cpp">
+			<Option target="test8"/>
+			<Option target="test7"/>
+			<Option target="test2"/>
+			<Option target="test3"/>
+			<Option target="test1"/>
+			<Option target="test6"/>
+			<Option target="test4"/>
+			<Option target="test5"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/Poller.h">
+			<Option target="test8"/>
+			<Option target="test7"/>
+			<Option target="test2"/>
+			<Option target="test3"/>
+			<Option target="test1"/>
+			<Option target="test6"/>
+			<Option target="test4"/>
+			<Option target="test5"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/SockOps.cpp">
+			<Option target="test8"/>
+			<Option target="test7"/>
+			<Option target="test2"/>
+			<Option target="test3"/>
+			<Option target="test1"/>
+			<Option target="test6"/>
+			<Option target="test4"/>
+			<Option target="test5"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/SockOps.h">
+			<Option target="test8"/>
+			<Option target="test7"/>
+			<Option target="test2"/>
+			<Option target="test3"/>
+			<Option target="test1"/>
+			<Option target="test6"/>
+			<Option target="test4"/>
+			<Option target="test5"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/Socket.cpp">
+			<Option target="test8"/>
+			<Option target="test7"/>
+			<Option target="test2"/>
+			<Option target="test3"/>
+			<Option target="test1"/>
+			<Option target="test6"/>
+			<Option target="test4"/>
+			<Option target="test5"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/Socket.h">
+			<Option target="test8"/>
+			<Option target="test7"/>
+			<Option target="test2"/>
+			<Option target="test3"/>
+			<Option target="test1"/>
+			<Option target="test6"/>
+			<Option target="test4"/>
+			<Option target="test5"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/TcpConnection.cpp">
+			<Option target="test8"/>
+			<Option target="test7"/>
+			<Option target="test2"/>
+			<Option target="test3"/>
+			<Option target="test1"/>
+			<Option target="test6"/>
+			<Option target="test4"/>
+			<Option target="test5"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/TcpConnection.h">
+			<Option target="test8"/>
+			<Option target="test7"/>
+			<Option target="test2"/>
+			<Option target="test3"/>
+			<Option target="test1"/>
+			<Option target="test6"/>
+			<Option target="test4"/>
+			<Option target="test5"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/TcpServer.cpp">
+			<Option target="test8"/>
+			<Option target="test7"/>
+			<Option target="test2"/>
+			<Option target="test3"/>
+			<Option target="test1"/>
+			<Option target="test6"/>
+			<Option target="test4"/>
+			<Option target="test5"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/TcpServer.h">
+			<Option target="test8"/>
+			<Option target="test7"/>
+			<Option target="test2"/>
+			<Option target="test3"/>
+			<Option target="test1"/>
+			<Option target="test6"/>
+			<Option target="test4"/>
+			<Option target="test5"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/Timer.cpp">
+			<Option target="test8"/>
+			<Option target="test7"/>
+			<Option target="test2"/>
+			<Option target="test3"/>
+			<Option target="test1"/>
+			<Option target="test6"/>
+			<Option target="test4"/>
+			<Option target="test5"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/Timer.h">
+			<Option target="test8"/>
+			<Option target="test7"/>
+			<Option target="test2"/>
+			<Option target="test3"/>
+			<Option target="test1"/>
+			<Option target="test6"/>
+			<Option target="test4"/>
+			<Option target="test5"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/TimerId.h">
+			<Option target="test8"/>
+			<Option target="test7"/>
+			<Option target="test2"/>
+			<Option target="test3"/>
+			<Option target="test1"/>
+			<Option target="test6"/>
+			<Option target="test4"/>
+			<Option target="test5"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/TimerQueue.cpp">
+			<Option target="test8"/>
+			<Option target="test7"/>
+			<Option target="test2"/>
+			<Option target="test3"/>
+			<Option target="test1"/>
+			<Option target="test6"/>
+			<Option target="test4"/>
+			<Option target="test5"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/TimerQueue.h">
+			<Option target="test8"/>
+			<Option target="test7"/>
+			<Option target="test2"/>
+			<Option target="test3"/>
+			<Option target="test1"/>
+			<Option target="test6"/>
+			<Option target="test4"/>
+			<Option target="test5"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/base/AsyncLogging.cc">
+			<Option target="muduo_base"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/base/AsyncLogging.h">
+			<Option target="muduo_base"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/base/Condition.cc">
+			<Option target="muduo_base"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/base/Condition.h">
+			<Option target="muduo_base"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/base/CountDownLatch.cc">
+			<Option target="muduo_base"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/base/CountDownLatch.h">
+			<Option target="muduo_base"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/base/CurrentThread.cc">
+			<Option target="muduo_base"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/base/CurrentThread.h">
+			<Option target="muduo_base"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/base/Date.cc">
+			<Option target="muduo_base"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/base/Date.h">
+			<Option target="muduo_base"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/base/Exception.cc">
+			<Option target="muduo_base"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/base/Exception.h">
+			<Option target="muduo_base"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/base/FileUtil.cc">
+			<Option target="muduo_base"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/base/FileUtil.h">
+			<Option target="muduo_base"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/base/LogFile.cc">
+			<Option target="muduo_base"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/base/LogFile.h">
+			<Option target="muduo_base"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/base/LogStream.cc">
+			<Option target="muduo_base"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/base/LogStream.h">
+			<Option target="muduo_base"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/base/Logging.cc">
+			<Option target="muduo_base"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/base/Logging.h">
+			<Option target="muduo_base"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/base/ProcessInfo.cc">
+			<Option target="muduo_base"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/base/ProcessInfo.h">
+			<Option target="muduo_base"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/base/Thread.cc">
+			<Option target="muduo_base"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/base/Thread.h">
+			<Option target="muduo_base"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/base/ThreadPool.cc">
+			<Option target="muduo_base"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/base/ThreadPool.h">
+			<Option target="muduo_base"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/base/TimeZone.cc">
+			<Option target="muduo_base"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/base/TimeZone.h">
+			<Option target="muduo_base"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/base/Timestamp.cc">
+			<Option target="muduo_base"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/base/Timestamp.h">
+			<Option target="muduo_base"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/test1.cpp">
+			<Option target="test1"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/test2.cpp">
+			<Option target="test2"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/test3.cpp">
+			<Option target="test3"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/test4.cpp">
+			<Option target="test4"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/test5.cpp">
+			<Option target="test5"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/test6.cpp">
+			<Option target="test6"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/test7.cpp">
+			<Option target="test7"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/test8.cpp">
+			<Option target="test8"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/zy/Project/snippet/reactor/s05/base/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\base\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
