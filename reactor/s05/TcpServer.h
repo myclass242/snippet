@@ -19,7 +19,8 @@ class TcpServer
 public:
     TcpServer(Eventloop* loop, const InetAddress& addr, const std::string& name);
     TcpServer(Eventloop* loop, const InetAddress& addr);
-    ~TcpServer();
+    ~TcpServer()
+    {}
 
     void start();
 

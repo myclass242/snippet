@@ -26,7 +26,8 @@ void onConnection(const std::shared_ptr<TcpConnection>& conn)
 
 void onMessage(const std::shared_ptr<TcpConnection>& conn, const char* data, ssize_t len)
 {
-    std::cout << "onMessage() :: received " << len << " bytes from " << conn->name() << '\n';
+    std::cout << "onMessage() :: received " << len << " bytes from " << conn->name();
+    std::cout << "\nMessage is " << data;
 }
 
 int main(void)

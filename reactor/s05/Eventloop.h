@@ -15,7 +15,6 @@
 #include "base/noncopyable.h"
 #include "base/CurrentThread.h"
 #include "base/Mutex.h"
-#include "Callback.h"
 #include "TimerId.h"
 
 
@@ -26,6 +25,7 @@ class TimerQueue;
 
 class Eventloop : public noncopyable
 {
+    using WakeupCallback = std::function<void()>;
 public:
     Eventloop();
     ~Eventloop();

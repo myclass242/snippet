@@ -7,12 +7,13 @@
 
 #include <functional>
 
-#include "Eventloop.h"
 #include "base/noncopyable.h"
 
 namespace muduo
 {
-class Channel : public noncopyable{
+class Eventloop;
+class Channel : public noncopyable
+{
 public:
     using EventCallback = std::function<void()>;
 

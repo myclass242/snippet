@@ -18,7 +18,8 @@ class TcpConnection : public std::enable_shared_from_this<TcpConnection>, public
     enum State {Connecting, Connected};
 public:
     TcpConnection(Eventloop* loop, const std::string& name, int connFd, const InetAddress& localAddr, const InetAddress& peerAddr);
-    ~TcpConnection();
+    ~TcpConnection()
+    {}
 
     std::string name(void) const
     {

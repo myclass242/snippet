@@ -78,7 +78,7 @@ void Poller::updateChannel(muduo::Channel *channel)
         pfd.events = static_cast<short int>(channel->events());
         pfd.revents = 0;
         if (channel->isNoneEvent()) {
-            pfd.fd == -1;
+            pfd.fd = -1;
         }
 
     }
