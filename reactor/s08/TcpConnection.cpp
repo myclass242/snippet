@@ -114,7 +114,7 @@ void TcpConnection::sendInloop(const std::string& message)
     ssize_t nwrite = 0;
     if (!channel_->isWriting() && outputBuffer_.readableBytes() == 0)
     {
-        nwrite = write(connectedFd_, message.data, message.size());
+        nwrite = ::write(connectedFd_, message.data(), message.size());
         if (nwrite >= 0)
         {
             if (implicit_cast<size_t>(nwrite) < message.size())
@@ -133,7 +133,7 @@ void TcpConnection::sendInloop(const std::string& message)
     assert(nwrite >= 0);
     if (implicit_cast<size_t>(nwrite) < message.size())
     {
-        outputBuffer_.append(message.data + nwrite, message.size() - nwrite);
+        outputBuffer_.append(message.data() + nwrite, message.size() - nwrite);
         if (!channel_->isWriting())
         {
             channel_->enableWriting();

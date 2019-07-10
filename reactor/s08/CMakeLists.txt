@@ -58,3 +58,9 @@ target_link_libraries(test7 muduo_base)
 
 add_executable(test8 ${SRC} test8.cpp)
 target_link_libraries(test8 muduo_base)
+
+add_executable(test9 ${SRC} test9.cpp)
+target_link_libraries(test9 muduo_base)
+
+add_executable(test10 ${SRC} test10.cpp)
+target_link_libraries(test10 muduo_base)

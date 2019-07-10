@@ -15,6 +15,8 @@
 
 namespace muduo
 {
+class TcpConnection;
+using TcpConnectionPtr = std::shared_ptr<TcpConnection>;
 class TcpConnection : public std::enable_shared_from_this<TcpConnection>, public noncopyable
 {
     enum State {Connecting, Connected, Disconnecting, Disconnected};
