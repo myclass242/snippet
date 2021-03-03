@@ -48,17 +48,35 @@ std::vector<std::vector<VertexPtr>> Graph::getCycle(void)
         tracePath.push_back(std::make_pair(topVertex, topVertex->adjanceVertexBegin()));
         while (!tracePath.empty()) {
             auto& currVertex = tracePath.back();
-            for (auto& adjanceIter = currVertex.second; adjanceIter != currVertex.first->adjanceVertexEnd(); ++adjanceIter) {
+            auto& adjanceIter = currVertex.second;
+            if (adjanceIter == currVertex.first->adjanceVertexEnd()) {
+                tracePath.pop_back();
+                continue;
+            }
+            while (adjanceIter != currVertex.first->adjanceVertexEnd()) {
+                auto adjance = (*adjanceIter).adjance.lock();
                 if (tracePath.size() > 1) {
                     auto visitedVertex = std::find_if(tracePath.begin(), tracePath.end(), 
                         [&](const std::pair<VertexPtr, AdjVerIter>& Vertex)
                         {
-
+                            // find a cycle 
+                            return Vertex.first == adjance && !Vertex.first->isAddjance(adjance);
                         });
+                    if (visitedVertex != tracePath.end()) {
+                        // TODO
+                        // add cycle,need check duplicate
+                        ++adjanceIter;
+                        continue;
+                    }
                 }
+                tracePath.push_back(std::make_pair(adjance, adjance->adjanceVertexBegin()));
+                ++adjanceIter;
+                break;
             }
         }
     }
+
+    return cycles;
 }
 
 VertexPtr Graph::findVertex(const std::string& value)

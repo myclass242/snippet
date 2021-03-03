@@ -7,9 +7,7 @@
 
 
 class Vertex;
-struct Vertex::AdjanceVertex;
 using VertexPtr = std::shared_ptr<Vertex>;
-using AdjVerIter = std::list<Vertex::AdjanceVertex>::iterator;
 
 class Vertex : public std::enable_shared_from_this<Vertex>
 {
@@ -27,8 +25,8 @@ public:
     const std::string& getName() const noexcept;
     void addAdjance(VertexPtr adjance, double weight);
     bool isAddjance(VertexPtr vertex) const;
-    AdjVerIter adjanceVertexBegin();
-    AdjVerIter adjanceVertexEnd();
+    std::list<AdjanceVertex>::iterator adjanceVertexBegin();
+    std::list<AdjanceVertex>::iterator adjanceVertexEnd();
     void setVisit(bool visited);
     bool isVisited(void) const noexcept;
 private:
@@ -36,5 +34,7 @@ private:
     std::list<AdjanceVertex> adjanceVertexes;
     bool visit;
 };
+
+using AdjVerIter = std::list<Vertex::AdjanceVertex>::iterator;
 
 #endif
