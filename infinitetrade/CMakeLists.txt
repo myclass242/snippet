@@ -3,4 +3,4 @@ project(infinitetrade)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(infinitetrade main.cpp vertex.cpp graph.cpp)
+add_executable(infinitetrade main.cpp vertex.cpp graph.cpp test.cpp)

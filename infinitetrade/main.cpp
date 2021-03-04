@@ -1,12 +1,12 @@
+#include "test.h"
 #include <iostream>
-#include "vertex.h"
 
 
 int main(void)
 {
-    std::cout << "Hello wrold" << std::endl;
-    Vertex ver("aa");
-    
+    testFindAllCycles1();
+    std::cout << "-----------------------------------------" << std::endl;
+    testFindAllCycles2();
 
     return 0;
 }

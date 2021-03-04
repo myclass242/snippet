@@ -59,26 +59,26 @@ const std::vector<std::vector<VertexPtr>>& Graph::getCycles(void)
             }
             while (adjanceIter != currVertex.first->adjanceVertexEnd()) {
                 auto adjance = (*adjanceIter).adjance.lock();
-                if (tracePath.size() > 1) {
-                    auto visitedVertex = std::find_if(tracePath.begin(), tracePath.end(), 
-                        [&](const std::pair<VertexPtr, AdjVerIter>& Vertex)
-                        {
-                            // find a cycle 
-                            return Vertex.first == adjance && !Vertex.first->isAddjance(adjance);
-                        });
-                    if (visitedVertex != tracePath.end()) {
+                auto visitedVertex = std::find_if(tracePath.begin(), tracePath.end(), 
+                    [&](const std::pair<VertexPtr, AdjVerIter>& Vertex)
+                    {
+                        // find a cycle 
+                        return Vertex.first == adjance && !Vertex.first->isAddjance(adjance);
+                    });
+                if (visitedVertex != tracePath.end()) {
+                    if (tracePath.end() - visitedVertex > 2) { // path A,B,A should not be considerd a cycle
                         std::vector<VertexPtr> cycle;
                         while (visitedVertex != tracePath.end()) {
                             cycle.push_back(visitedVertex->first);
                             ++visitedVertex;
                         }
                         addCycle(std::move(cycle));
-                        ++adjanceIter;
-                        continue;
                     }
+                    ++adjanceIter;
+                    continue;
                 }
-                tracePath.push_back(std::make_pair(adjance, adjance->adjanceVertexBegin()));
                 ++adjanceIter;
+                tracePath.push_back(std::make_pair(adjance, adjance->adjanceVertexBegin()));
                 break;
             }
         }
