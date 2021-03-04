@@ -4,6 +4,7 @@
 #include <unordered_set>
 #include <stack>
 #include <utility>
+#include <algorithm>
 
 
 void Graph::addVertex(const std::string& value)
@@ -33,15 +34,18 @@ void Graph::addEdge(const std::string& from, const std::string& to, double weigh
     doAddEdge(vertexFrom, vertexTo, weight, false);
 }
 
-std::vector<std::vector<VertexPtr>> Graph::getCycle(void)
+const std::vector<std::vector<VertexPtr>>& Graph::getCycles(void)
 {
     /* Use DFS to find all cycles.
-     * If a vertex that has been visited is find during DFS, then we have 
-     * find a cycle.
-     * tracePath: Vertexes in order of DFS
+     * tracePath: Vertexes in order of DFS. tracePath.first: vertex;
+     * tracePath.second: iterator of tracePath.first.
+     * tracePath records the stack infomation for the non_recursive DFS.
+     * When traverse a vertex, add it to the back of tracePath.pop a vertex until
+     * all its adjance vertexes have been traverse.If a vertex that has been 
+     * visited is find during DFS, then we have find a cycle, and we don't 
+     * traverse into that visited vertex, so that we guarantee that we do not
+     * loop indefinitely.
     */
-
-    std::vector<std::vector<VertexPtr>> cycles;
     std::vector<std::pair<VertexPtr, AdjVerIter>> tracePath;
     
     for (const auto& topVertex : vertexes) {
@@ -63,8 +67,12 @@ std::vector<std::vector<VertexPtr>> Graph::getCycle(void)
                             return Vertex.first == adjance && !Vertex.first->isAddjance(adjance);
                         });
                     if (visitedVertex != tracePath.end()) {
-                        // TODO
-                        // add cycle,need check duplicate
+                        std::vector<VertexPtr> cycle;
+                        while (visitedVertex != tracePath.end()) {
+                            cycle.push_back(visitedVertex->first);
+                            ++visitedVertex;
+                        }
+                        addCycle(std::move(cycle));
                         ++adjanceIter;
                         continue;
                     }
@@ -77,6 +85,23 @@ std::vector<std::vector<VertexPtr>> Graph::getCycle(void)
     }
 
     return cycles;
+}
+
+void Graph::addCycle(std::vector<VertexPtr>&& candidateCycle)
+{
+    for (const auto& cycle : cycles) {
+        if (cycle.size() == candidateCycle.size()) {
+            bool find = std::all_of(cycle.begin(), cycle.end(), 
+                [&](const VertexPtr& vertex) {
+                    return std::find(candidateCycle.begin(), candidateCycle.end(), vertex) != candidateCycle.end();
+                });
+            if (find) {     // find a same cycle
+                return;
+            }
+        }
+    }
+
+    cycles.push_back(std::move(candidateCycle));
 }
 
 VertexPtr Graph::findVertex(const std::string& value)

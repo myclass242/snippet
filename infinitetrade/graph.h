@@ -14,12 +14,14 @@ public:
 
     void addVertex(const std::string& value);
     void addEdge(const std::string& from, const std::string& to, double weight);
-    std::vector<std::vector<VertexPtr>> getCycle(void);
+    const std::vector<std::vector<VertexPtr>>& getCycles(void);
 private:
     VertexPtr findVertex(const std::string& value);
     void doAddEdge(VertexPtr from, VertexPtr to, double weight, bool orient);
+    void addCycle(std::vector<VertexPtr>&& candidateCycle);
 private:
     std::vector<VertexPtr> vertexes;
+    std::vector<std::vector<VertexPtr>> cycles;
 };
 
 #endif
