@@ -66,8 +66,8 @@ void testFindAllTrades2(void)
     InfiniteTrade trade;
     trade.addRule("A B 2");
     trade.addRule("A C 4");
-    trade.addRule("A D 2");
-    trade.addRule("A E 2");
+    trade.addRule("A D 6");
+    trade.addRule("A E 4");
     trade.addRule("A F 2");
     trade.addRule("B C 2");
     trade.addRule("B E 2");
