@@ -1,6 +1,17 @@
 #include "test.h"
 #include "graph.h"
+#include "infinitetrade.h"
 #include <iostream>
+
+static void printCycles(const std::list<std::vector<VertexPtr>>& cycles)
+{
+    for (const auto& cycle : cycles) {
+        for (const auto& vertex : cycle) {
+            std::cout << vertex->getName() << " ";
+        }
+        std::cout << std::endl;
+    }
+}
 
 void testFindAllCycles1(void)
 {
@@ -14,13 +25,7 @@ void testFindAllCycles1(void)
     graph.addEdge("B", "C", 2);
     graph.addEdge("A", "C", 3);
 
-    auto cycles = graph.getCycles();
-    for (const auto& cycle : cycles) {
-        for (const auto& vertex : cycle) {
-            std::cout << vertex->getName() << " ";
-        }
-        std::cout << std::endl;
-    }
+    printCycles(graph.getCycles());
 }
 
 void testFindAllCycles2(void)
@@ -43,11 +48,30 @@ void testFindAllCycles2(void)
     graph.addEdge("B", "E", 2);
     graph.addEdge("C", "D", 2);
 
-    auto cycles = graph.getCycles();
-    for (const auto& cycle : cycles) {
-        for (const auto& vertex : cycle) {
-            std::cout << vertex->getName() << " ";
-        }
-        std::cout << std::endl;
-    }
+    printCycles(graph.getCycles());
+}
+
+void testFindAllTrades(void)
+{
+    InfiniteTrade trade;
+    trade.addRule("A B 2");
+    trade.addRule("B C 2");
+    trade.addRule("A C 3");
+
+    printCycles(trade.getAllTrades());
+}
+
+void testFindAllTrades2(void)
+{
+    InfiniteTrade trade;
+    trade.addRule("A B 2");
+    trade.addRule("A C 4");
+    trade.addRule("A D 2");
+    trade.addRule("A E 2");
+    trade.addRule("A F 2");
+    trade.addRule("B C 2");
+    trade.addRule("B E 2");
+    trade.addRule("C D 2");
+
+    printCycles(trade.getAllTrades());
 }

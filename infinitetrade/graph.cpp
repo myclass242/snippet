@@ -18,7 +18,7 @@ void Graph::addVertex(const std::string& value)
     vertexes.push_back(std::make_shared<Vertex>(value));
 }
 
-void Graph::addEdge(const std::string& from, const std::string& to, double weight)
+void Graph::addEdge(const std::string& from, const std::string& to, int weight)
 {
     auto vertexFrom = findVertex(from);
     if (!vertexFrom) {
@@ -31,10 +31,10 @@ void Graph::addEdge(const std::string& from, const std::string& to, double weigh
         return;
     }
 
-    doAddEdge(vertexFrom, vertexTo, weight, false);
+    doAddEdge(vertexFrom, vertexTo, weight, Drection::FORWARD);
 }
 
-const std::vector<std::vector<VertexPtr>>& Graph::getCycles(void)
+std::list<std::vector<VertexPtr>> Graph::getCycles(void)
 {
     /* Use DFS to find all cycles.
      * tracePath: Vertexes in order of DFS. tracePath.first: vertex;
@@ -46,6 +46,7 @@ const std::vector<std::vector<VertexPtr>>& Graph::getCycles(void)
      * traverse into that visited vertex, so that we guarantee that we do not
      * loop indefinitely.
     */
+    std::list<std::vector<VertexPtr>> cycles;
     std::vector<std::pair<VertexPtr, AdjVerIter>> tracePath;
     
     for (const auto& topVertex : vertexes) {
@@ -72,7 +73,7 @@ const std::vector<std::vector<VertexPtr>>& Graph::getCycles(void)
                             cycle.push_back(visitedVertex->first);
                             ++visitedVertex;
                         }
-                        addCycle(std::move(cycle));
+                        addCycle(cycles, std::move(cycle));
                     }
                     ++adjanceIter;
                     continue;
@@ -87,7 +88,7 @@ const std::vector<std::vector<VertexPtr>>& Graph::getCycles(void)
     return cycles;
 }
 
-void Graph::addCycle(std::vector<VertexPtr>&& candidateCycle)
+void Graph::addCycle(std::list<std::vector<VertexPtr>>& cycles, std::vector<VertexPtr>&& candidateCycle)
 {
     for (const auto& cycle : cycles) {
         if (cycle.size() == candidateCycle.size()) {
@@ -116,10 +117,10 @@ VertexPtr Graph::findVertex(const std::string& value)
     return *findVertex;
 }
 
-void Graph::doAddEdge(VertexPtr from, VertexPtr to, double weight, bool orient)
+void Graph::doAddEdge(VertexPtr from, VertexPtr to, int weight, Drection drc)
 {
-    from->addAdjance(to, weight);
-    if (!orient) {
-        doAddEdge(to, from, 1 / weight, !orient);
+    from->addAdjance(to, weight, drc);
+    if (drc == Drection::FORWARD) {
+        doAddEdge(to, from, weight, Drection::OPPOSITE);
     }
 }
