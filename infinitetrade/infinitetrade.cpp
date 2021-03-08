@@ -34,28 +34,30 @@ void InfiniteTrade::removeUninfiniteTradeCycles(void)
     // For a trade cycle in one direction, for example: A->B->...->X->A,
     // the FORWARD weight product means increase, the OPPOSITE weight product
     // means decrease.
-    // if the FORWARD weight product is equal to the OPPPOSITE weight product,
+    // if the FORWARD weight product is equal to the OPPOSITE weight product,
     // which mesns 1A eventually exchange 1A, it's not a infinite trade cycle.
     // if the OPPOSITE weight product is bigger than FORWARD weight product,
     // we should reverse the direction of trade, so the infinite trade order is
     // X->...->B->A->X.
-    // In vector, A is the begin element and X is the end element
+    // In list, A is the begin element and X is the end element
     for (auto cycleIter = trades.begin(); cycleIter != trades.end();) {
-        uint64_t weightes[2] = {1, 1};
-        auto end2beginWeight = (*(cycleIter->end() - 1))->getWeight(*(cycleIter->begin())); // X->A
-        weightes[end2beginWeight.second] *= end2beginWeight.first;
-        for (auto vertexIter = cycleIter->begin(); vertexIter != (cycleIter->end() - 1); ++vertexIter) {
-            auto weight = (*vertexIter)->getWeight(*(vertexIter + 1));
-            weightes[weight.second] *= weight.first;
+        std::vector<Vertex::Weight> weights;
+        uint64_t weightProduct[2] = {1, 1}; // weightProduct[0]: FORWARD weight product, weightProduct[1]: OPPOSITE weight product
+        auto end2beginWeight = cycleIter->back()->getWeight(cycleIter->front()); // X->A
+        weightProduct[end2beginWeight.drection] *= end2beginWeight.weight;
+        for (auto vertexNext = cycleIter->begin(), VertexCurr = vertexNext++; vertexNext != cycleIter->end(); VertexCurr = vertexNext++) {
+            auto weight = (*VertexCurr)->getWeight(*(vertexNext));
+            weightProduct[weight.drection] *= weight.weight;
+            weights.push_back(weight);
         }
-        if (weightes[FORWARD] == weightes[OPPOSITE]) {
+        weights.push_back(end2beginWeight);
+        if (weightProduct[FORWARD] == weightProduct[OPPOSITE]) {
             // not a infinite trade cycle
             cycleIter = trades.erase(cycleIter);
         } else {
-            if (weightes[FORWARD] < weightes[OPPOSITE]) {
-                tradesDrection.push_back(OPPOSITE);
-            } else {
-                tradesDrection.push_back(FORWARD);
+            tradesWeight.push_back(std::move(weights));
+            if (weightProduct[FORWARD] < weightProduct[OPPOSITE]) {
+                std::reverse(cycleIter->begin(), cycleIter->end());
             }
             ++cycleIter;
         }
@@ -68,7 +70,7 @@ void InfiniteTrade::infiniteTrade(void)
     removeUninfiniteTradeCycles();
 }
 
-std::list<std::vector<VertexPtr>> InfiniteTrade::getTrades(void)
+std::list<std::list<VertexPtr>> InfiniteTrade::getTrades(void)
 {
     trades = graph.getCycles();
     removeUninfiniteTradeCycles();

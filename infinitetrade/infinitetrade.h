@@ -13,13 +13,14 @@ public:
     void addRule(const std::string& rule);
     void infiniteTrade(void);
     // for test
-    std::list<std::vector<VertexPtr>> getTrades(void);
+    std::list<std::list<VertexPtr>> getTrades(void);
 private:
     void removeUninfiniteTradeCycles(void);
+    // std::size_t getTradeStardIndex()
 private:
     Graph graph;
-    std::list<std::vector<VertexPtr>> trades;
-    std::vector<Drection> tradesDrection;
+    std::list<std::list<VertexPtr>> trades;
+    std::vector<std::vector<Vertex::Weight>> tradesWeight;
 };
 
 #endif

@@ -3,7 +3,7 @@
 #include "infinitetrade.h"
 #include <iostream>
 
-static void printCycles(const std::list<std::vector<VertexPtr>>& cycles)
+static void printCycles(const std::list<std::list<VertexPtr>>& cycles)
 {
     for (const auto& cycle : cycles) {
         for (const auto& vertex : cycle) {
