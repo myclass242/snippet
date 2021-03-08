@@ -22,6 +22,7 @@ private:
     std::list<std::vector<VertexPtr>> trades;
     std::vector<Drection> tradesDrection;
 	std::vector<std::vector<Vertex::Weight>> tradesWeight;
+    std::vector<std::size_t> tradesBeginIndex;
 };
 
 #endif

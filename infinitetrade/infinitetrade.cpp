@@ -31,6 +31,43 @@ void InfiniteTrade::addRule(const std::string& rule)
     graph.addEdge(items[0], items[1], weight);
 }
 
+std::size_t getTradeBeginIndex(const std::vector<Vertex::Weight>& weights, Drection drection, uint64_t base)
+{
+    uint64_t min = base;
+
+    if (drection == FORWARD) {
+        std::size_t beginIndex = 0;
+        uint64_t currValue = min;
+        for (int index = 0; index != weights.size(); ++index) {
+            if (weights[index].drection == FORWARD) {
+                currValue *= weights[index].weight;
+            } else {
+                currValue /= weights[index].weight;
+            }
+            if (min < currValue) {
+                min = currValue;
+                beginIndex = index + 1;
+            }
+        }
+        return beginIndex;
+    } else {
+        std::size_t beginIndex = weights.size() - 1;
+        uint64_t currValue = min;
+        for (int index = weights.size() - 1; index >= 0; --index) {
+            if (weights[index].drection == FORWARD) {
+                currValue /= weights[index].weight;
+            } else {
+                currValue *= weights[index].weight;
+            }
+            if (min < currValue) {
+                min = currValue;
+                beginIndex = index;
+            }
+        }
+        return beginIndex;
+    }
+}
+
 void InfiniteTrade::removeUninfiniteTradeCycles(void)
 {
     // For a trade cycle in one direction, for example: A->B->...->X->A,
@@ -57,12 +94,14 @@ void InfiniteTrade::removeUninfiniteTradeCycles(void)
             // not a infinite trade cycle
             cycleIter = trades.erase(cycleIter);
         } else {
-            tradesWeight.push_back(std::move(weights));
             if (weightProduct[FORWARD] < weightProduct[OPPOSITE]) {
                 tradesDrection.push_back(OPPOSITE);
+                tradesBeginIndex.push_back(getTradeBeginIndex(weights, OPPOSITE, weightProduct[FORWARD]));
             } else {
                 tradesDrection.push_back(FORWARD);
+                tradesBeginIndex.push_back(getTradeBeginIndex(weights, FORWARD, weightProduct[OPPOSITE]));
             }
+            tradesWeight.push_back(std::move(weights));
             ++cycleIter;
         }
     }
