@@ -16,6 +16,7 @@ public:
     std::list<std::vector<VertexPtr>> getTrades(void);
 private:
     void removeUninfiniteTradeCycles(void);
+    void tradeAll(void);
 private:
     Graph graph;
     std::list<std::vector<VertexPtr>> trades;

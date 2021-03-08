@@ -1,5 +1,7 @@
 #include "infinitetrade.h"
 
+#include <unordered_map>
+
 
 static std::vector<std::string> split(const std::string& str, char a)
 {
@@ -66,10 +68,27 @@ void InfiniteTrade::removeUninfiniteTradeCycles(void)
     }
 }
 
+void InfiniteTrade::tradeAll(void)
+{
+    auto tradeIter = trades.begin();
+    auto drectionIter = tradesDrection.begin();
+    auto weightsIter = tradesWeight.begin();
+
+    std::unordered_map<std::string, int> productsInHand; // trade products in hand 
+    while (tradeIter != trades.end()) {
+        if (*drectionIter == FORWARD) {
+            
+        } else {
+
+        }
+    }
+}
+
 void InfiniteTrade::infiniteTrade(void)
 {
     trades = graph.getCycles();
     removeUninfiniteTradeCycles();
+    tradeAll();
 }
 
 std::list<std::vector<VertexPtr>> InfiniteTrade::getTrades(void)
