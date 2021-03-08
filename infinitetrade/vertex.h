@@ -21,14 +21,28 @@ enum Drection
     OPPOSITE
 };
 
-class Vertex : public std::enable_shared_from_this<Vertex>
+class Vertex
 {
 public:
+    struct Weight
+    {
+        Weight() = delete;
+        Weight(int w, Drection drc);
+        Weight(const Weight& other) = default;
+        Weight& operator=(const Weight& rhs);
+
+        int weight;
+        Drection drection;
+    };
     struct AdjanceVertex
     {
+        AdjanceVertex() = delete;
+        AdjanceVertex(VertexPtr vertex, int w, Drection drc);
+        AdjanceVertex(const AdjanceVertex& other) = default;
+        AdjanceVertex& operator=(const AdjanceVertex& rhs);
+
         std::weak_ptr<Vertex> adjance;
-        int weight;
-        Drection driction;
+        Weight weight;
     };
 
 public:
@@ -38,7 +52,7 @@ public:
     const std::string& getName() const noexcept;
     void addAdjance(VertexPtr adjance, int weight, Drection drc);
     bool isAddjance(VertexPtr vertex) const;
-    std::pair<int, Drection> getWeight(VertexPtr vertex) const;
+    Weight getWeight(VertexPtr vertex) const;
     std::list<AdjanceVertex>::iterator adjanceVertexBegin();
     std::list<AdjanceVertex>::iterator adjanceVertexEnd();
 private:

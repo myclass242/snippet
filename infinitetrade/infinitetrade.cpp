@@ -41,18 +41,22 @@ void InfiniteTrade::removeUninfiniteTradeCycles(void)
     // X->...->B->A->X.
     // In vector, A is the begin element and X is the end element
     for (auto cycleIter = trades.begin(); cycleIter != trades.end();) {
-        uint64_t weightes[2] = {1, 1};
+        std::vector<Vertex::Weight> weights;
+        uint64_t weightProduct[2] = {1, 1}; // weightProduct[0]: FORWARD weight product, weightProduct[1]: OPPOSITE weight product
         auto end2beginWeight = (*(cycleIter->end() - 1))->getWeight(*(cycleIter->begin())); // X->A
-        weightes[end2beginWeight.second] *= end2beginWeight.first;
+        weightProduct[end2beginWeight.drection] *= end2beginWeight.weight;
         for (auto vertexIter = cycleIter->begin(); vertexIter != (cycleIter->end() - 1); ++vertexIter) {
             auto weight = (*vertexIter)->getWeight(*(vertexIter + 1));
-            weightes[weight.second] *= weight.first;
+            weightProduct[weight.drection] *= weight.weight;
+            weights.push_back(weight);
         }
-        if (weightes[FORWARD] == weightes[OPPOSITE]) {
+        weights.push_back(end2beginWeight);
+        if (weightProduct[FORWARD] == weightProduct[OPPOSITE]) {
             // not a infinite trade cycle
             cycleIter = trades.erase(cycleIter);
         } else {
-            if (weightes[FORWARD] < weightes[OPPOSITE]) {
+            tradesWeight.push_back(std::move(weights));
+            if (weightProduct[FORWARD] < weightProduct[OPPOSITE]) {
                 tradesDrection.push_back(OPPOSITE);
             } else {
                 tradesDrection.push_back(FORWARD);

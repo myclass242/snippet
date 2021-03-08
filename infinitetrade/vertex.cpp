@@ -1,5 +1,34 @@
 #include "vertex.h"
 
+
+Vertex::Weight::Weight(int w, Drection drc)
+    : weight(w), drection(drc)
+{}
+
+Vertex::Weight& Vertex::Weight::operator=(const Weight& rhs)
+{
+    if (this != &rhs) {
+        weight = rhs.weight;
+        drection = rhs.drection;
+    }
+
+    return *this;
+}
+
+Vertex::AdjanceVertex::AdjanceVertex(VertexPtr vertex, int w, Drection drc)
+    : adjance(vertex), weight(w, drc)
+{}
+
+Vertex::AdjanceVertex& Vertex::AdjanceVertex::operator=(const AdjanceVertex& rhs)
+{
+    if (this != &rhs) {
+        adjance = rhs.adjance;
+        weight = rhs.weight;
+    }
+
+    return *this;
+}
+
 Vertex::Vertex(const std::string& value)
     : name(value)
 {}
@@ -26,7 +55,7 @@ bool Vertex::isAddjance(VertexPtr vertex) const
         }) != adjanceVertexes.end();
 }
 
-std::pair<int, Drection> Vertex::getWeight(VertexPtr vertex) const
+Vertex::Weight Vertex::getWeight(VertexPtr vertex) const
 {
     auto iter = std::find_if(adjanceVertexes.begin(), adjanceVertexes.end(), 
         [&](const AdjanceVertex& adjance)
@@ -36,7 +65,7 @@ std::pair<int, Drection> Vertex::getWeight(VertexPtr vertex) const
     
     // not need to check iter != adjanceVertexes.end()
     // because the caller guaranteed the adjance property 
-    return {iter->weight, iter->driction};
+    return iter->weight;
 }
 
 AdjVerIter Vertex::adjanceVertexBegin()

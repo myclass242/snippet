@@ -20,6 +20,7 @@ private:
     Graph graph;
     std::list<std::vector<VertexPtr>> trades;
     std::vector<Drection> tradesDrection;
+	std::vector<std::vector<Vertex::Weight>> tradesWeight;
 };
 
 #endif
