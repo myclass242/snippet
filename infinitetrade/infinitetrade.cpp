@@ -58,14 +58,12 @@ void InfiniteTrade::removeUninfiniteTradeCycles(void)
             cycleIter = trades.erase(cycleIter);
         } else {
             if (weightProduct[FORWARD] < weightProduct[OPPOSITE]) {
-                std::reverse(cycleIter->begin(), cycleIter->end());
-                std::reverse(weights.begin(), weights.end());
+                cycleIter->reverse();
+                weights.reverse();
                 weights.push_back(end2beginWeight);
-                std::for_each(weights.begin(), weights.end(), 
-                    [&](Vertex::Weight& weight) 
-                    {
-                        weight.drection = (weight.drection == FORWARD ? OPPOSITE : FORWARD);
-                    });
+                for (auto &weight : weights) {
+                    weight.drection = (weight.drection == FORWARD ? OPPOSITE : FORWARD);
+                }
             } else {
                 weights.push_back(end2beginWeight);
             }
