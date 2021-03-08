@@ -1,6 +1,7 @@
 #include "infinitetrade.h"
 
 #include <unordered_map>
+#include <iostream>
 
 
 static std::vector<std::string> split(const std::string& str, char a)
@@ -38,13 +39,13 @@ std::size_t getTradeBeginIndex(const std::vector<Vertex::Weight>& weights, Drect
     if (drection == FORWARD) {
         std::size_t beginIndex = 0;
         uint64_t currValue = min;
-        for (int index = 0; index != weights.size(); ++index) {
+        for (int index = beginIndex; index != weights.size(); ++index) {
             if (weights[index].drection == FORWARD) {
                 currValue *= weights[index].weight;
             } else {
                 currValue /= weights[index].weight;
             }
-            if (min < currValue) {
+            if (currValue < min) {
                 min = currValue;
                 beginIndex = index + 1;
             }
@@ -53,13 +54,14 @@ std::size_t getTradeBeginIndex(const std::vector<Vertex::Weight>& weights, Drect
     } else {
         std::size_t beginIndex = weights.size() - 1;
         uint64_t currValue = min;
-        for (int index = weights.size() - 1; index >= 0; --index) {
-            if (weights[index].drection == FORWARD) {
-                currValue /= weights[index].weight;
+        for (int index = beginIndex; index >= 0; --index) {
+            std::size_t weightIndex = (index == 0 ? (weights.size() - 1) : (index - 1));
+            if (weights[weightIndex].drection == FORWARD) {
+                currValue /= weights[weightIndex].weight;
             } else {
-                currValue *= weights[index].weight;
+                currValue *= weights[weightIndex].weight;
             }
-            if (min < currValue) {
+            if (currValue < min) {
                 min = currValue;
                 beginIndex = index;
             }
@@ -68,7 +70,7 @@ std::size_t getTradeBeginIndex(const std::vector<Vertex::Weight>& weights, Drect
     }
 }
 
-void InfiniteTrade::removeUninfiniteTradeCycles(void)
+void InfiniteTrade::constructInfiniteTrades(void)
 {
     // For a trade cycle in one direction, for example: A->B->...->X->A,
     // the FORWARD weight product means increase, the OPPOSITE weight product
@@ -107,33 +109,93 @@ void InfiniteTrade::removeUninfiniteTradeCycles(void)
     }
 }
 
+void printProducts(const std::unordered_map<std::string, int>& products)
+{
+    for (const auto& product : products) {
+        std::cout << product.second << product.first << " ";
+    }
+    std::cout << " -> ";
+}
+
 void InfiniteTrade::tradeAll(void)
 {
     auto tradeIter = trades.begin();
     auto drectionIter = tradesDrection.begin();
     auto weightsIter = tradesWeight.begin();
+    auto beginIndexIter = tradesBeginIndex.begin();
 
-    std::unordered_map<std::string, int> productsInHand; // trade products in hand 
     while (tradeIter != trades.end()) {
+        std::unordered_map<std::string, int> productsInHand; // trade products in hand 
+        std::size_t index = *beginIndexIter;
+        productsInHand[(*tradeIter)[index]->getName()] = 1;
         if (*drectionIter == FORWARD) {
-            
+            do {
+                printProducts(productsInHand);
+                std::size_t nextIndex = ((index == tradeIter->size() - 1) ? 0 : (index + 1));
+                const std::string& from = (*tradeIter)[index]->getName();
+                const std::string& to = (*tradeIter)[nextIndex]->getName();
+                auto& weight = (*weightsIter)[index];
+                if (weight.drection == FORWARD) {
+                    productsInHand[to] += productsInHand[from] * weight.weight;
+                    productsInHand.erase(from);
+                } else {
+                    std::size_t fromNum = productsInHand[from];
+                    std::size_t toNum = fromNum / weight.weight;
+                    std::size_t residulFromNum = fromNum % weight.weight;
+                    if (residulFromNum == 0) {
+                        productsInHand.erase(from);
+                    } else {
+                        productsInHand[from] = residulFromNum;
+                    }
+                    productsInHand[to] += toNum;
+                }
+                index = nextIndex;
+            } while (index != *beginIndexIter);
+            printProducts(productsInHand);
         } else {
-
+            do {
+                printProducts(productsInHand);
+                std::size_t nextIndex = ((index == 0) ? (tradeIter->size() - 1) : (index - 1));
+                const std::string& from = (*tradeIter)[index]->getName();
+                const std::string& to = (*tradeIter)[nextIndex]->getName();
+                auto& weight = (*weightsIter)[nextIndex];
+                if (weight.drection = OPPOSITE) {
+                    productsInHand[to] += productsInHand[from] * weight.weight;
+                    productsInHand.erase(from);
+                } else {
+                    std::size_t fromNum = productsInHand[from];
+                    std::size_t toNum = fromNum / weight.weight;
+                    std::size_t residualFromNum = fromNum % weight.weight;
+                    if (residualFromNum == 0) {
+                        productsInHand.erase(from);
+                    } else {
+                        productsInHand[from] = residualFromNum;
+                    }
+                    productsInHand[to] += toNum;
+                }
+            } while (index != *beginIndexIter);
+            printProducts(productsInHand);
         }
+        ++tradeIter;
+        ++drectionIter;
+        ++weightsIter;
+        ++beginIndexIter;
+
+        std::cout << std::endl;
     }
 }
 
 void InfiniteTrade::infiniteTrade(void)
 {
     trades = graph.getCycles();
-    removeUninfiniteTradeCycles();
+    constructInfiniteTrades();
     tradeAll();
 }
 
 std::list<std::vector<VertexPtr>> InfiniteTrade::getTrades(void)
 {
     trades = graph.getCycles();
-    removeUninfiniteTradeCycles();
+    constructInfiniteTrades();
 
     return trades;
 }

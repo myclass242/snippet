@@ -15,7 +15,7 @@ public:
     // for test
     std::list<std::vector<VertexPtr>> getTrades(void);
 private:
-    void removeUninfiniteTradeCycles(void);
+    void constructInfiniteTrades(void);
     void tradeAll(void);
 private:
     Graph graph;

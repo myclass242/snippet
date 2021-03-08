@@ -58,7 +58,7 @@ void testFindAllTrades(void)
     trade.addRule("B C 2");
     trade.addRule("A C 3");
 
-    printCycles(trade.getTrades());
+    trade.infiniteTrade();
 }
 
 void testFindAllTrades2(void)
@@ -73,5 +73,5 @@ void testFindAllTrades2(void)
     trade.addRule("B E 2");
     trade.addRule("C D 2");
 
-    printCycles(trade.getTrades());
+    trade.infiniteTrade();
 }
