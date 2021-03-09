@@ -63,7 +63,7 @@ std::size_t getTradeBeginIndex(const std::vector<Vertex::Weight>& weights, Drect
             }
             if (currValue < min) {
                 min = currValue;
-                beginIndex = index;
+                beginIndex = index - 1;
             }
         }
         return beginIndex;
@@ -159,7 +159,7 @@ void InfiniteTrade::tradeAll(void)
                 const std::string& from = (*tradeIter)[index]->getName();
                 const std::string& to = (*tradeIter)[nextIndex]->getName();
                 auto& weight = (*weightsIter)[nextIndex];
-                if (weight.drection = OPPOSITE) {
+                if (weight.drection == OPPOSITE) {
                     productsInHand[to] += productsInHand[from] * weight.weight;
                     productsInHand.erase(from);
                 } else {
@@ -173,6 +173,7 @@ void InfiniteTrade::tradeAll(void)
                     }
                     productsInHand[to] += toNum;
                 }
+                index = nextIndex;
             } while (index != *beginIndexIter);
             printProducts(productsInHand);
         }
