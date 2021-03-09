@@ -13,6 +13,8 @@ int main(void)
     testFindAllTrades2();
     std::cout << "-----------------------------------------" << std::endl;
     testFindAllTrads3();
+    std::cout << "-----------------------------------------" << std::endl;
+    testFindAllTrads_configFile();
 
     return 0;
 }

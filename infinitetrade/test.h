@@ -7,5 +7,6 @@ void testFindAllCycles2(void);
 void testFindAllTrades(void);
 void testFindAllTrades2(void);
 void testFindAllTrads3(void);
+void testFindAllTrads_configFile(void);
 
 #endif

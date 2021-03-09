@@ -10,6 +10,7 @@ public:
     InfiniteTrade() = default;
     ~InfiniteTrade() {};
 
+    void input(const std::string& configFile);
     void addRule(const std::string& rule);
     void infiniteTrade(void);
 private:

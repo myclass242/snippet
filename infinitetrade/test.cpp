@@ -94,3 +94,11 @@ void testFindAllTrads3(void)
 
     trade.infiniteTrade();
 }
+
+void testFindAllTrads_configFile(void)
+{
+    InfiniteTrade trade;
+    trade.input("./trade.txt");
+
+    trade.infiniteTrade();
+}

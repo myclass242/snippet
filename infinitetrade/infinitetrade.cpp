@@ -2,6 +2,7 @@
 
 #include <unordered_map>
 #include <iostream>
+#include <fstream>
 
 
 static std::vector<std::string> split(const std::string& str, char a)
@@ -18,6 +19,22 @@ static std::vector<std::string> split(const std::string& str, char a)
     strvec.push_back(str.substr(pos1));
 
     return strvec;
+}
+
+void InfiniteTrade::input(const std::string& configFile)
+{
+    std::ifstream in(configFile);
+    if (!in.is_open()) {
+        std::cout << "Open config file: " << configFile << " filed." << std::endl;
+        return;
+    }
+
+    std::string line;
+    while (std::getline(in, line)) {
+        addRule(line);
+    }
+
+    in.close();
 }
 
 void InfiniteTrade::addRule(const std::string& rule)
