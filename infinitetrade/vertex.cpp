@@ -1,5 +1,7 @@
 #include "vertex.h"
 
+#include <algorithm>
+
 
 Vertex::Weight::Weight(int w, Drection drc)
     : weight(w), drection(drc)
