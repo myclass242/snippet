@@ -34,6 +34,17 @@ void InfiniteTrade::addRule(const std::string& rule)
 
 std::size_t getTradeBeginIndex(const std::vector<Vertex::Weight>& weights, Drection drection, uint64_t base)
 {
+    // For a trade cycle in one direction, for example: A->B->...->X->A,
+    // For transactions in the FORWARD direction, we set the first element 
+    // to be the product of OPPOSITE weights; for transactions in the OPPOSITE direction, 
+    // we set the last element to be the product of FORWARD weights, so that 
+    // the division can be divided evenly. For the FORWARD direction, we trade 
+    // in the direction of A->B->...->X->A; for the OPPOSITE direction, we trade
+    //  in the direction of X->...->B->A->X. The element with the final minimum 
+    // is the element at which our transaction started.
+    // base is the product of OPPOSITE weights for FORWARD direction or 
+    // the product of FORwARD weights for OPPOSITE frection
+
     uint64_t min = base;
 
     if (drection == FORWARD) {
@@ -109,7 +120,7 @@ void InfiniteTrade::constructInfiniteTrades(void)
     }
 }
 
-void printProducts(const std::unordered_map<std::string, int>& products)
+void printProducts(const std::unordered_map<std::string, std::size_t>& products)
 {
     for (const auto& product : products) {
         std::cout << product.second << product.first << " ";
@@ -125,7 +136,7 @@ void InfiniteTrade::tradeAll(void)
     auto beginIndexIter = tradesBeginIndex.begin();
 
     while (tradeIter != trades.end()) {
-        std::unordered_map<std::string, int> productsInHand; // trade products in hand 
+        std::unordered_map<std::string, std::size_t> productsInHand; // trade products in hand 
         std::size_t index = *beginIndexIter;
         productsInHand[(*tradeIter)[index]->getName()] = 1;
         if (*drectionIter == FORWARD) {
@@ -134,7 +145,7 @@ void InfiniteTrade::tradeAll(void)
                 std::size_t nextIndex = ((index == tradeIter->size() - 1) ? 0 : (index + 1));
                 const std::string& from = (*tradeIter)[index]->getName();
                 const std::string& to = (*tradeIter)[nextIndex]->getName();
-                auto& weight = (*weightsIter)[index];
+                const Vertex::Weight& weight = (*weightsIter)[index];
                 if (weight.drection == FORWARD) {
                     productsInHand[to] += productsInHand[from] * weight.weight;
                     productsInHand.erase(from);
@@ -158,7 +169,7 @@ void InfiniteTrade::tradeAll(void)
                 std::size_t nextIndex = ((index == 0) ? (tradeIter->size() - 1) : (index - 1));
                 const std::string& from = (*tradeIter)[index]->getName();
                 const std::string& to = (*tradeIter)[nextIndex]->getName();
-                auto& weight = (*weightsIter)[nextIndex];
+                const Vertex::Weight& weight = (*weightsIter)[nextIndex];
                 if (weight.drection == OPPOSITE) {
                     productsInHand[to] += productsInHand[from] * weight.weight;
                     productsInHand.erase(from);
@@ -191,12 +202,4 @@ void InfiniteTrade::infiniteTrade(void)
     trades = graph.getCycles();
     constructInfiniteTrades();
     tradeAll();
-}
-
-std::list<std::vector<VertexPtr>> InfiniteTrade::getTrades(void)
-{
-    trades = graph.getCycles();
-    constructInfiniteTrades();
-
-    return trades;
 }

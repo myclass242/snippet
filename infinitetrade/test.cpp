@@ -75,3 +75,22 @@ void testFindAllTrades2(void)
 
     trade.infiniteTrade();
 }
+
+void testFindAllTrads3(void)
+{
+    InfiniteTrade trade;
+    trade.addRule("B A 2");
+    trade.addRule("A C 4");
+    trade.addRule("A D 6");
+    trade.addRule("A E 4");
+    trade.addRule("A F 2");
+    trade.addRule("B C 2");
+    trade.addRule("B E 2");
+    trade.addRule("C D 2");
+    trade.addRule("F D 3");
+    trade.addRule("F E 7");
+    trade.addRule("F C 2");
+    trade.addRule("B F 5");
+
+    trade.infiniteTrade();
+}

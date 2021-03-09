@@ -12,17 +12,16 @@ public:
 
     void addRule(const std::string& rule);
     void infiniteTrade(void);
-    // for test
-    std::list<std::vector<VertexPtr>> getTrades(void);
 private:
     void constructInfiniteTrades(void);
     void tradeAll(void);
 private:
     Graph graph;
-    std::list<std::vector<VertexPtr>> trades;
-    std::vector<Drection> tradesDrection;
-	std::vector<std::vector<Vertex::Weight>> tradesWeight;
-    std::vector<std::size_t> tradesBeginIndex;
+    // trades.size() == tradesDrection.size() == tradesWeight.size() == tradesBeginIndex.size()
+    std::list<std::vector<VertexPtr>> trades;   // all infinite trade cycle
+    std::vector<Drection> tradesDrection;   // the drectoin of each trade
+	std::vector<std::vector<Vertex::Weight>> tradesWeight;   // the weight of each trade
+    std::vector<std::size_t> tradesBeginIndex;  // the index of start trade of each trade in trades[x]
 };
 
 #endif

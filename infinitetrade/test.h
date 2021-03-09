@@ -6,5 +6,6 @@ void testFindAllCycles2(void);
 
 void testFindAllTrades(void);
 void testFindAllTrades2(void);
+void testFindAllTrads3(void);
 
 #endif
